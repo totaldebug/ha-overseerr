@@ -1,0 +1,12 @@
+{
+    "domain": "overseerr",
+    "name": "Overseerr",
+    "codeowners": [
+        "@marksie1988"
+    ],
+    "config_flow": true,
+    "documentation": "https://github.com/totaldebug/ha-overseerr",
+    "iot_class": "local_polling",
+    "issue_tracker": "https://github.com/totaldebug/ha-overseerr/issues",
+    "version": "0.0.0"
+}

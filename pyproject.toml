@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "ha-overseerr"
+version = "0.0.0"
+description = "Overseerr Integration for Home Assistant"
+authors = ["Steven Marks <marksie1988@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+homeassistant = "^2024.3.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

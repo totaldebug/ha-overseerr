@@ -1,0 +1,67 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+    "build": {
+        // Path is relative to the devcontainer.json file.
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "[python]": {
+                    "diffEditor.ignoreTrimWhitespace": false,
+                    "editor.formatOnType": true,
+                    "editor.wordBasedSuggestions": "off",
+                    "editor.defaultFormatter": "ms-python.black-formatter",
+                    "autoDocstring.docstringFormat": "google",
+                    "editor.tabSize": 4
+                },
+                "[yaml]": {
+                    "editor.insertSpaces": true,
+                    "editor.tabSize": 2,
+                    "editor.autoIndent": "advanced",
+                    "diffEditor.ignoreTrimWhitespace": false
+                },
+                "files.eol": "\n",
+                "terminal.integrated.profiles.linux": {
+                    "zsh": {
+                        "path": "/bin/zsh"
+                    }
+                },
+                "terminal.integrated.defaultProfile.linux": "zsh",
+                "editor.formatOnPaste": false,
+                "editor.formatOnSave": true,
+                "editor.formatOnType": true,
+                "files.trimTrailingWhitespace": true
+            },
+            "extensions": [
+                "sourcery.sourcery",
+                "njpwerner.autodocstring",
+                "ms-python.flake8",
+                "dbaeumer.vscode-eslint",
+                "ms-python.isort",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-python.black-formatter",
+                "GitHub.vscode-github-actions"
+            ]
+        }
+    },
+    "remoteUser": "vscode",
+    "postCreateCommand": "zsh ./.devcontainer/post-install.sh",
+    "forwardPorts": [
+        8123
+    ],
+    "portsAttributes": {
+        "8123": {
+            "label": "Home Assistant",
+            "onAutoForward": "notify"
+        }
+    },
+    "mounts": [
+        /* Re-use local SSH keys (useful if you use SSH keys for Git repo access or other SSH work)*/
+        "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached",
+        /* Re-use local Git configuration*/
+        "source=${localEnv:HOME}/.gitconfig,target=/home/vscode/.gitconfig,type=bind,consistency=cached",
+    ]
+}
